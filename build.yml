@@ -9,6 +9,9 @@ schedules:
     - master
   always: true
 
+variables:
+- group: skill-az-function
+
 resources:
   repositories:
     - repository: templates
