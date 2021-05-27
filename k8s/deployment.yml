@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skill-az-function-deployment
+spec:
+  replicas: 1
+  progressDeadlineSeconds: 180
+  selector:
+    matchLabels:
+      app: skill-az-function
+  template:
+    metadata:
+      labels:
+        app: skill-az-function
+    spec:
+      containers:
+      - name: skill-az-function
+        image: raschmitt/skill-az-function:latest
+        resources:
+          limits:
+            memory: "250Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /api/health
+            port: 80
+

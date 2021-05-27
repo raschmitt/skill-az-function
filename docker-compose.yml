@@ -1,9 +1,9 @@
 services:     
-     az-function-skill:
-        image: az-function-skill
-        container_name: az-function-skill
-        build:
-            context: ./src/
-            dockerfile: Dockerfile
-        ports:
-          - "7071:80"
+  skill-az-function:
+    image: raschmitt/skill-az-function:latest
+    container_name: skill-az-function
+    build:
+        context: ./src/
+        dockerfile: Dockerfile
+    ports:
+      - "7071:80"

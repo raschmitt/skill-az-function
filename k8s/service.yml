@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: skill-az-function-service
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  selector:
+    app: skill-az-function
+  ports:
+  - port: 80
+    targetPort: 80
+    protocol: TCP
+  type: ClusterIP
+  

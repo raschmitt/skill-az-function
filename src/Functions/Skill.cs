@@ -2,20 +2,20 @@ using Alexa.NET;
 using Alexa.NET.Request;
 using Alexa.NET.Request.Type;
 using Alexa.NET.Response;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
-namespace AzFunctionSkill
+namespace AzFunctionSkill.Functions
 {
-    public static class Function
+    public static class Skill
     {
         private static SkillResponse _skillResponse;
         private static SkillRequest _skillRequest;
         
-        [FunctionName("dot-net-skill")]
+        [FunctionName(nameof(Skill))]
         public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest request)
         {
             DeserializeRequest(request);
